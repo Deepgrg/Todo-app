@@ -1,0 +1,20 @@
+{% extends 'task/base.html' %}
+
+{% block content %}
+    <h2>Login page</h2>
+
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="username">Username : </label><input type="text" name="username" id="username"><br>
+        <label for="password">Password : </label><input type="password" name="password" id="password">
+        <br><br>
+        <button type="submit">Sign in</button>
+    </form>
+    {% for message in messages %}
+
+       <p> {{message}}</p>
+
+    {% endfor %}
+    <p>Need an account? <a href="{% url 'register_page' %}">Register </a></p>
+{% endblock  %}

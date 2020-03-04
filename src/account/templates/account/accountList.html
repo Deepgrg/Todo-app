@@ -1,6 +1,13 @@
 {% extends 'task/base.html' %}
+
 {% block content %}
 
-    <h2>Hello from the account page</h2>
+    <h2>Accounts list </h2>
+
+    <h3>Total User : {{ user_count }}</h3>
+
+    <br>
+    <p>Not a member? <a href="{% url 'register_page' %}">Register</a></p>
+    <p>Have an account? <a href="{% url 'login_page' %}">Login</a></p>
 
 {% endblock %}
