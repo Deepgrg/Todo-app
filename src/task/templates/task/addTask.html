@@ -1,0 +1,14 @@
+{% extends 'task/base.html' %}
+
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button type="submit">Add task</button>
+    </form>
+    <br>
+    <p><a href="{% url 'index_page'%}">Go back</a></p>
+
+{% endblock %}

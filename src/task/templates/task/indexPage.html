@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do App</title>
-</head>
-<body>
-    <h2>This is from the template</h2>
-</body>
-</html>
+{% extends 'task/base.html' %}
+{% block content %}
+
+    <h2>My To Do App</h2>
+    <p><a href="{% url 'addTask_page' %}"> Add task</a></p>
+    <h3>Tasks Lists</h3>
+    <ol>
+        {% for task in tasks %}
+            <div>
+                {% if task.status == True %}
+                    <li><strike><h4>Task : {{task.topic}}</h4></strike></li>
+                {% else %}
+                    <li><h4>Task : {{task.topic}}</h4></li>
+                {% endif %}
+                <p>Description of the task : {{task.description}}</p>
+                <p>Task completed : {{task.status}}</p>
+                <p>Task Added Date : {{task.date_created}}</p>
+                <a href="{% url 'updateTask_page' task.id %}">Update Task</a>
+                <br><a href="{% url 'deleteTask_page' task.id %}">Delete Task</a>
+            </div>
+        {% endfor %}
+    </ol>        
+
+{% endblock %}
